@@ -1,13 +1,12 @@
-console.log('111');
+modules.define('header', ['i-bem-dom'], function(provide, BEMDOM) {
 
-modules.define('header', ['i-bem__dom'], function(provide, BEMDOM) {
-
-    provide(BEMDOM.decl(this.name, {
+    provide(BEMDOM.declBlock(this.name, {
         onSetMod: {
             js: {
                 inited: function() {
                     console.log('inited');
-                    this.bindTo('click', function() {
+
+                    this.domElem.on('click', () => {
                         this.toggleMod('visible');
                     });
                 }
